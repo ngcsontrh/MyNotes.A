@@ -18,8 +18,4 @@
     <ProjectReference Include="..\MyNotes.ServiceDefaults\MyNotes.ServiceDefaults.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\Services\" />
-  </ItemGroup>
-
 </Project>

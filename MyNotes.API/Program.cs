@@ -1,6 +1,6 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using MyNotes.API.Infrastructure.APIDefinitions;
+using MyNotes.API.Core.APIDefinitions;
 using MyNotes.API.Infrastructure.Persistance;
 
 var builder = WebApplication.CreateBuilder(args);
