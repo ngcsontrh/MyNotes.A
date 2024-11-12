@@ -25,15 +25,11 @@ namespace MyNotes.API.Features.Notes.Commands.CreateNote
 				return new CreateNoteResponse(Success: false);
 			}
 
-			var entity = new Note
-			{
-				Title = request.Title,
-				Description = request.Description,
-			};
+			var entity = request.As<Note>();
 
 			try
 			{
-				await _context.Notes.AddAsync(entity, cancellationToken);
+				await _context.Notes.AddAsync(entity!, cancellationToken);
 				await _context.SaveChangesAsync(cancellationToken);
 			}
 			catch (Exception)
