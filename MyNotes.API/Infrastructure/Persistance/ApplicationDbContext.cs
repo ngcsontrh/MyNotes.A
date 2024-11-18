@@ -4,16 +4,14 @@ using System.Reflection;
 
 namespace MyNotes.API.Infrastructure.Persistance
 {
-	public class ApplicationDbContext : DbContext
+	public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 		}
 
-		public DbSet<Note> Notes { get; set; }
+		public DbSet<Note>? Notes { get; set; }
 	}
 }
